@@ -1,0 +1,497 @@
+@charset "UTF-8";
+/*!
+Theme Name: unanim
+Theme URI: http://underscores.me/
+Author: aur├®lie jallut
+Author URI: http://www.marquedefabrique.net
+Description: Th├¿me newsletter Francas
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: unanim
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+unanim is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content ## Posts and pages
+	## Asides
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+html { font-family: sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body { margin: 0; }
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary { display: block; }
+
+audio, canvas, progress, video { display: inline-block; vertical-align: baseline; }
+
+audio:not([controls]) { display: none; height: 0; }
+
+[hidden], template { display: none; }
+
+a { background-color: transparent; }
+
+a:active, a:hover { outline: 0; }
+
+abbr[title] { border-bottom: 1px dotted; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+h1 { margin: 0.67em 0; }
+
+mark { background: #ff0; color: #000; }
+
+small { font-size: 80%; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+
+sup { top: -0.5em; }
+
+sub { bottom: -0.25em; }
+
+img { border: 0; }
+
+svg:not(:root) { overflow: hidden; }
+
+figure { margin: 1em 40px; }
+
+hr { box-sizing: content-box; height: 0; }
+
+pre { overflow: auto; }
+
+code, kbd, pre, samp { font-family: monospace, monospace; font-size: 1em; }
+
+button, input, optgroup, select, textarea { color: inherit; font: inherit; margin: 0; }
+
+button { overflow: visible; }
+
+button, select { text-transform: none; }
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; cursor: pointer; }
+
+button[disabled], html input[disabled] { cursor: default; }
+
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+input { line-height: normal; }
+
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; }
+
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { height: auto; }
+
+input[type="search"] { -webkit-appearance: textfield; box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
+
+legend { border: 0; padding: 0; }
+
+textarea { overflow: auto; }
+
+optgroup { font-weight: bold; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+td, th { padding: 0; }
+
+ul { padding: 0; margin: 0; }
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body, button, input, select, textarea { color: #2B2B2B; font-family: "Lato", Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif; font-size: 15px; font-size: 0.9375rem; line-height: 1.3125; }
+
+/*Chapo*/
+lead, .lead { font: 300 1.125em/1.968em; }
+
+.exergue { font: 300 0.7619em; }
+
+mark, .mark { background-color: #f9ffa0; }
+
+/*listes*/
+ul { list-style-type: disc; }
+
+/*liens*/
+/*menu secondaire*/
+footer nav.main-menu-footer ul li a { text-transform: uppercase; font-weight: 900; font-size: 0.937em; }
+
+/*Version newsletter*/
+#newsletter_version { font-size: 1.3125em; font-weight: 900; color: #a7a9ac; }
+#newsletter_version:before { content: '#'; }
+
+h1, h2, h3, h4, h5, h6 { clear: both; }
+
+h1 { font-weight: 900; font-size: 36px; font-size: 2.25rem; line-height: 1.3125em; text-transform: uppercase; }
+
+h2 { font-weight: 400; font-size: 36px; font-size: 2.25rem; line-height: 1.3125em; }
+
+h3 { font-weight: 400; font-size: 24px; font-size: 1.5rem; line-height: 1.3125; text-transform: uppercase; }
+
+h4 { font-weight: 400; font-size: 24px; font-size: 1.5rem; line-height: 1.3125; }
+
+h5 { font-weight: 700; font-size: 20px; font-size: 1.25rem; line-height: 1.3125; }
+
+h6 { font-weight: 300; font-size: 18px; font-size: 1.125rem; line-height: 1.3125; }
+
+/*Home et page taxonomie newsletter*/
+.home article h1, .home article h1 a, .tax-newsletter article h1, .tax-newsletter article h1 a { font-size: 1.25em; line-height: 1.31em; text-decoration: none; color: #2B2B2B; }
+
+/*Page cat├®gorie gab 1 colonne*/
+/*titre de la cat├®gorie*/
+h1.page-title { padding: 0.5em 0; background-image: url(assets/trait-categorie.png), url(assets/fleche-categorie.png); background-position: top left , right bottom; background-repeat: no-repeat; }
+
+h1.page-title, .entry-category a { display: inline-block; font-weight: 900; font-size: 1.3125em; text-transform: uppercase; line-height: 1.3125; text-decoration: none; color: #2B2B2B; }
+
+/*titre post gab modulaire*/
+/*header.entry-header .entry-title{ font-weight: 900; font-size: 2.25em; //36 div 16 line-height: 1.968em; // 31.5 div 16
+}*/
+p { margin-bottom: 1.5em; }
+
+dfn, cite, em, i { font-style: italic; }
+
+blockquote { margin: 0 1.5em; }
+
+address { margin: 0 0 1.5em; }
+
+pre { background: #eee; font-family: "Courier 10 Pitch", Courier, monospace; font-size: 15px; font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.6em; max-width: 100%; overflow: auto; padding: 1.6em; }
+
+code, kbd, tt, var { font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace; font-size: 15px; font-size: 0.9375rem; }
+
+abbr, acronym { border-bottom: 1px dotted #666; cursor: help; }
+
+mark, ins { background: #fff9c0; text-decoration: none; }
+
+big { font-size: 125%; }
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+html { box-sizing: border-box; }
+
+*, *:before, *:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */ box-sizing: inherit; }
+
+body { background: #fff; /* Fallback for when there is no custom background color defined. */ }
+
+#page { max-width: 1200px; margin: 0 auto; }
+
+blockquote, q { quotes: "" ""; }
+blockquote:before, blockquote:after, q:before, q:after { content: ""; }
+
+hr { background-color: #7A7777; border: 0; height: 1px; margin-bottom: 1.5em; }
+
+.exergue { border-left: 10px solid #F1F2F2; padding-left: 10px; font-weight: 300; font-size: 1.125em; }
+
+.mark { background-color: #f9ffa0; }
+
+ul, ol { margin: 1em 0; }
+
+ul { list-style: disc; list-style-position: inside; }
+
+ol { list-style: decimal; }
+
+li > ul, li > ol { /*	margin-bottom: 0;
+	margin-left: 1.5em;*/ }
+
+dt { font-weight: bold; }
+
+/*dd {
+	margin: 0 1.5em 1.5em;
+}*/
+img { height: auto; /* Make sure images are scaled correctly. */ max-width: 100%; /* Adhere to container width. */ }
+
+table { margin: 0 0 1.5em; width: 100%; }
+
+/*header logo*/
+site-branding { margin-bottom: 1.25em; text-align: center; }
+
+/*page category conteneur principal*/
+.site-content { clear: both; padding: 0px 8.33%; margin: 1.3125em 0; }
+
+/*conteneur principal du gabarit modulaire et de la home et taxnewsletter*/
+.category-echos-des-equipes .site-content, .category-pour-aller-loin .site-content, .category-rendez-vous .site-content, .category-vous .site-content, .tax-newsletter .site-content, .home .site-content { padding: 0px 0.833%; }
+
+/** ---=@section FOOTER ---*/
+footer { position: relative; margin-top: 2em; min-height: 270px; background-color: #7A7777; }
+
+footer nav { position: absolute; width: 100%; background-color: #fff; }
+
+/*boutons suivant pr├®c├®dent*/
+.btn-prev { position: absolute; top: 6.56em; left: 0.833%; width: 12.5%; margin: 0 0.833%; min-height: 5.31em; }
+
+.btn-next { position: absolute; top: 6.56em; right: 0.833%; width: 12.5%; margin: 0 0.833%; min-height: 5.31em; }
+
+.btn-prev a, .btn-next a { display: block; position: absolute; padding: 0.5em 0; top: 20%; font-weight: 900; text-transform: uppercase; color: #fff; font-size: 1.31em; opacity: 0.6; }
+.btn-prev a:hover, .btn-prev a:focus, .btn-prev a:active, .btn-next a:hover, .btn-next a:focus, .btn-next a:active { color: #fff; opacity: 1; }
+
+.btn-prev a { text-align: right; background-image: url(assets/trait-newsletter.png), url(assets/fleche-newsletter-prec.png); background-position: right top, left  bottom; background-repeat: no-repeat; }
+
+.btn-next a { background-image: url(assets/trait-newsletter.png), url(assets/fleche-newsletter-suiv.png); background-position: left top, right  bottom; background-repeat: no-repeat; }
+
+/*Version newsletter*/
+#newsletter_version { padding-left: 22.83%; margin-bottom: 1.3125em; }
+
+/*page liste des r├®gions*/
+ul#region-list { text-transform: uppercase; font-weight: 900; font-size: 1.71em; list-style-type: none; }
+ul#region-list li a { color: #a7a9ac; }
+ul#region-list li a:hover, ul#region-list li a:focus { color: #2B2B2B; }
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+button, input[type="button"], input[type="reset"], input[type="submit"] { border: 1px solid; border-color: #ccc #ccc #bbb; border-radius: 3px; background: #F9FFA0; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05); color: rgba(0, 0, 0, 0.8); font-size: 12px; font-size: 0.75rem; line-height: 1; padding: .6em 1em .4em; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); }
+button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover { border-color: #ccc #bbb #aaa; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02); }
+button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus { border-color: #aaa #bbb #bbb; box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15); }
+
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], textarea { color: #7A7777; border: 1px solid #ccc; border-radius: 3px; }
+input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, textarea:focus { color: #A3A2A2; }
+
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"] { padding: 3px; }
+
+textarea { padding-left: 3px; width: 100%; }
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+a { color: #706f53; text-decoration: none; /*	&:visited {
+		color: $color__link-visited;
+	}*/ }
+a:hover, a:focus, a:active { color: #3d3d2d; }
+a:focus { outline: thin dotted; }
+a:hover, a:active { outline: 0; }
+
+/*styles des liens cat├®gories*/
+.entry-category a, .entry-category a:hover { color: #2B2B2B; padding-bottom: 0.5em; background-image: url(assets/fleche-categorie.png); background-position: right bottom; background-repeat: no-repeat; }
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+header .main-navigation { clear: both; display: block; float: left; width: 100%; text-transform: uppercase; }
+header .main-navigation button { border: 0px; border-image: none; width: 42px; height: 22px; color: transparent; background-image: url(assets/ic-menu.png); background-color: transparent; position: absolute; /*            right: 7%;*/ top: 45px; }
+header .main-navigation ul { display: none; list-style: none; margin: 0; padding-left: 0; }
+header .main-navigation ul ul { box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2); float: left; position: absolute; top: 1.5em; left: -999em; z-index: 99999; }
+header .main-navigation ul ul ul { left: -999em; top: 0; }
+header .main-navigation ul ul li:hover > ul, header .main-navigation ul ul li.focus > ul { left: 100%; }
+header .main-navigation ul ul a { width: 200px; }
+header .main-navigation ul li:hover > ul, header .main-navigation ul li.focus > ul { left: auto; }
+header .main-navigation li { /*float: left;*/ position: relative; padding: 0.636em 0; }
+header .main-navigation a { display: block; text-decoration: none; color: #2B2B2B; }
+
+/* Small menu. */
+.menu-toggle, .main-navigation.toggled ul { display: block; }
+
+@media screen and (min-width: 37.5em) { header .menu-toggle { display: block; }
+  header .main-navigation ul { display: none; } }
+.site-main .comment-navigation, .site-main .posts-navigation, .site-main .post-navigation { margin: 0 0 1.5em; overflow: hidden; }
+.comment-navigation .nav-previous, .posts-navigation .nav-previous, .post-navigation .nav-previous { float: left; width: 50%; }
+.comment-navigation .nav-next, .posts-navigation .nav-next, .post-navigation .nav-next { float: right; text-align: right; width: 50%; }
+
+/*Menu footer*/
+footer nav.main-menu-footer ul li { display: inline-block; }
+footer nav.main-menu-footer ul li:after { content: '|'; color: #A3A2A2; padding-left: 0.5em; margin-right: 0.5em; }
+footer nav.main-menu-footer ul li:last-child:after { content: none; }
+footer nav.main-menu-footer ul li a { color: #A3A2A2; }
+footer nav.main-menu-footer ul li a:hover { color: #2B2B2B; }
+footer nav.main-menu-footer ul .current-menu-item a { color: #2B2B2B; }
+
+/*menu mentions*/
+.menu-mentions { position: absolute; bottom: 0; font-weight: 300; }
+.menu-mentions a, .menu-mentions a:hover { color: #fff; }
+.menu-mentions ul li { display: inline-block; }
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text { clip: rect(1px, 1px, 1px, 1px); position: absolute !important; height: 1px; width: 1px; overflow: hidden; }
+.screen-reader-text:hover, .screen-reader-text:active, .screen-reader-text:focus { background-color: #fff; border-radius: 3px; box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6); clip: auto !important; color: #2B2B2B; display: block; font-size: 14px; font-size: 0.875rem; font-weight: bold; height: auto; left: 5px; line-height: normal; padding: 15px 23px 14px; text-decoration: none; top: 5px; width: auto; z-index: 100000; /* Above WP toolbar. */ }
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft { display: inline; float: left; margin-right: 1.5em; }
+
+.alignright { display: inline; float: right; margin-left: 1.5em; }
+
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before, .clear:after, .entry-content:before, .entry-content:after, .comment-content:before, .comment-content:after, .site-header:before, .site-header:after, .site-content:before, .site-content:after, .site-footer:before, .site-footer:after { content: ""; display: table; }
+
+.clear:after, .entry-content:after, .comment-content:after, .site-header:after, .site-content:after, .site-footer:after { clear: both; }
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget { margin: 0 0 1.5em; /* Make sure select elements fit in widgets. */ }
+.widget select { max-width: 100%; }
+
+/* Search widget. */
+.widget_search .search-submit { display: none; }
+
+/*--------------------------------------------------------------
+# Layout
+# Import de sidebar-content pour une sidebar gauche
+--------------------------------------------------------------*/
+/*@import "layout/sidebar-content";*/
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.sticky { display: block; }
+
+.hentry { margin: 0 0 1.5em; }
+
+.byline, .updated:not(.published) { display: none; }
+
+.single .byline, .group-blog .byline { display: inline; }
+
+/*.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}*/
+.page-links { clear: both; margin: 0 0 1.5em; }
+
+/** ---=@section HOME ---*/
+/** @subsection Home et taxonomie newsletter */
+.home article, .archive.tax-newsletter article { float: left; width: 23.33%; height: 660px; margin: 1.25em 0.83%; }
+.home article .entry-category, .archive.tax-newsletter article .entry-category { width: 100%; height: 3.75em; padding-top: 0.5em; background-image: url(assets/trait-categorie.png); background-position: top left; background-repeat: no-repeat; }
+.home .entry-footer, .archive.tax-newsletter .entry-footer { text-align: right; margin: 1em 0; }
+
+/*fond image trace sous texte des  cat├®gories de la Home et page taxonomie newsletter*/
+.home .category-autour-de-nous .entry-content, .home .category-en-actions .entry-content, .tax-newsletter .category-autour-de-nous .entry-content, .tax-newsletter .category-en-actions .entry-content { height: 514px; background-position: top center; background-repeat: no-repeat; }
+
+.home .category-autour-de-nous .entry-content, .tax-newsletter .category-autour-de-nous .entry-content { background-image: url(assets/trace-gris-clair_03.png); }
+
+.home .category-en-actions .entry-content, .tax-newsletter .category-en-actions .entry-content { background-image: url(assets/trace-gris-fonce.png); }
+
+.home .category-engages .entry-content, .tax-newsletter .category-engages .entry-content { background-image: url(assets/trace-jaune.png); }
+
+/** @subsection gabarit 1 colonne */
+.category article.category-engages, .category article.category-en-actions, .category article.category-autour-de-nous { clear: both; }
+.category article.category-engages .entry-header, .category article.category-en-actions .entry-header, .category article.category-autour-de-nous .entry-header { position: relative; }
+.category article.category-engages .entry-image, .category article.category-en-actions .entry-image, .category article.category-autour-de-nous .entry-image { position: absolute; left: 70%; }
+.category article.category-engages h1.entry-title, .category article.category-en-actions h1.entry-title, .category article.category-autour-de-nous h1.entry-title { display: block; width: 68%; margin: 0 1.47% 1.31em 1.47%; }
+.category article.category-engages h1.entry-title a, .category article.category-engages h1.entry-title a:hover, .category article.category-engages h1.entry-title a:focus, .category article.category-engages h1.entry-title a:visited, .category article.category-en-actions h1.entry-title a, .category article.category-en-actions h1.entry-title a:hover, .category article.category-en-actions h1.entry-title a:focus, .category article.category-en-actions h1.entry-title a:visited, .category article.category-autour-de-nous h1.entry-title a, .category article.category-autour-de-nous h1.entry-title a:hover, .category article.category-autour-de-nous h1.entry-title a:focus, .category article.category-autour-de-nous h1.entry-title a:visited { color: #2B2B2B; }
+.category article.category-engages .entry-content, .category article.category-en-actions .entry-content, .category article.category-autour-de-nous .entry-content { float: left; width: 68%; margin: 0 1.47%; }
+
+/** @subsection gabarit modulaire */
+/* Couleurs de fond des cat├®gories en blocs flottants */
+.category-echos-des-equipes .jaune, .category-vous .jaune, .category-rendez-vous .jaune, .category-pour-aller-loin .jaune { background-color: #f9ffa0; }
+.category-echos-des-equipes .gris-clair, .category-vous .gris-clair, .category-rendez-vous .gris-clair, .category-pour-aller-loin .gris-clair { background-color: #f1f2f2; }
+.category-echos-des-equipes .gris-fonce, .category-vous .gris-fonce, .category-rendez-vous .gris-fonce, .category-pour-aller-loin .gris-fonce { background-color: #a7a9ac; }
+
+article.category-echos-des-equipes h1.entry-title, article.category-pour-aller-loin h1.entry-title, article.category-rendez-vous h1.entry-title, article.category-echos-des-equipes h1.entry-title, article.category-vous h1.entry-title { padding: 0.5em 0; line-height: 1em; background-image: url(assets/trait-region.png); background-position: top left; background-repeat: no-repeat; }
+article.category-echos-des-equipes h1.entry-title a, article.category-echos-des-equipes h1.entry-title a:hover, article.category-echos-des-equipes h1.entry-title a:focus, article.category-echos-des-equipes h1.entry-title a:visited, article.category-pour-aller-loin h1.entry-title a, article.category-pour-aller-loin h1.entry-title a:hover, article.category-pour-aller-loin h1.entry-title a:focus, article.category-pour-aller-loin h1.entry-title a:visited, article.category-rendez-vous h1.entry-title a, article.category-rendez-vous h1.entry-title a:hover, article.category-rendez-vous h1.entry-title a:focus, article.category-rendez-vous h1.entry-title a:visited, article.category-echos-des-equipes h1.entry-title a, article.category-echos-des-equipes h1.entry-title a:hover, article.category-echos-des-equipes h1.entry-title a:focus, article.category-echos-des-equipes h1.entry-title a:visited, article.category-vous h1.entry-title a, article.category-vous h1.entry-title a:hover, article.category-vous h1.entry-title a:focus, article.category-vous h1.entry-title a:visited { padding-bottom: 0.5em; color: #2B2B2B; background-image: url(assets/fleche-categorie.png); background-position: right bottom; background-repeat: no-repeat; }
+article.category-echos-des-equipes .entry-content, article.category-pour-aller-loin .entry-content, article.category-rendez-vous .entry-content, article.category-echos-des-equipes .entry-content, article.category-vous .entry-content { padding: 0 2.63%; }
+
+/*--------------------------------------------------------------
+## Asides
+--------------------------------------------------------------*/
+.blog .format-aside .entry-title, .archive .format-aside .entry-title { display: none; }
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a { word-wrap: break-word; }
+
+.bypostauthor { display: block; }
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation, .infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */ display: none; }
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer { display: block; }
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley, .entry-content .wp-smiley, .comment-content .wp-smiley { border: none; margin-bottom: 0; margin-top: 0; padding: 0; }
+
+/* Make sure embeds and iframes fit their containers. */
+embed, iframe, object, img { max-width: 100%; }
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption { margin-bottom: 1.5em; max-width: 100%; }
+.wp-caption img[class*="wp-image-"] { display: block; margin-left: auto; margin-right: auto; }
+.wp-caption .wp-caption-text { margin: 0.8075em 0; }
+
+.wp-caption-text { text-align: center; }
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery { margin-bottom: 1.5em; }
+
+.gallery-item { display: inline-block; text-align: center; vertical-align: top; width: 100%; }
+.gallery-columns-2 .gallery-item { max-width: 50%; }
+.gallery-columns-3 .gallery-item { max-width: 33.33%; }
+.gallery-columns-4 .gallery-item { max-width: 25%; }
+.gallery-columns-5 .gallery-item { max-width: 20%; }
+.gallery-columns-6 .gallery-item { max-width: 16.66%; }
+.gallery-columns-7 .gallery-item { max-width: 14.28%; }
+.gallery-columns-8 .gallery-item { max-width: 12.5%; }
+.gallery-columns-9 .gallery-item { max-width: 11.11%; }
+
+.gallery-caption { display: block; }
+
+/*--------------------------------------------------------------
+# Personnalisation
+--------------------------------------------------------------*/
+/* Mixins */
+/* Classes de colonnes (2 ou 3)*/
+.cols-2 { -webkit-column-count: 2; -moz-column-count: 2; column-count: 2; column-gap: 1.66%; }
+.cols-2 article { overflow: auto; }
+
+.cols-3 { -webkit-column-count: 3; -moz-column-count: 3; column-count: 3; column-gap: 1.66%; }
+.cols-3 article { overflow: auto; }
+
+/* Bloc de d├®bogage sur le site - A enlever en production*/
+#debug { font-size: .7em; padding: 1%; position: fixed; top: 30px; right: 0; display: block; width: 30%; opacity: .8; background-color: black; color: white; z-index: 10; cursor: pointer; }
+#debug h5 { font-size: 1.2em; color: red; }
+#debug::before { content: '+ / -'; }
+
+/*# sourceMappingURL=style.css.map */

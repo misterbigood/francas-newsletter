@@ -1,0 +1,199 @@
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.byline,
+.updated:not(.published){
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+/*.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}*/
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+
+/** ---=@section HOME ---*/
+
+/** @subsection Home et taxonomie newsletter */
+
+.home, .archive.tax-newsletter {
+     
+    article { 
+        float: left;
+        width: 23.33%;//280 div 1200
+        height: 660px;
+        margin: 1.25em 0.83%;//20px div 16 et 10 div 1200
+        
+            .entry-category {
+            width: 100%;
+            height: 3.75em; //60 div 16
+            padding-top: 0.5em;
+            background-image: url(assets/trait-categorie.png); //after dans links.scss
+            background-position: top left;
+            background-repeat: no-repeat;
+              
+            
+           
+                         
+                }
+            }
+            
+            
+            .entry-footer{
+                
+                text-align:right;
+                margin:1em 0;
+                
+                
+            }
+            
+            
+           
+    }
+
+    /*fond image trace sous texte des  catégories de la Home et page taxonomie newsletter*/
+    .home .category-autour-de-nous .entry-content,
+    .home .category-en-actions .entry-content,
+    .tax-newsletter .category-autour-de-nous .entry-content,
+    .tax-newsletter .category-en-actions .entry-content
+   
+    {
+            height: 514px;//32.125em
+            background-position: top center;
+            background-repeat: no-repeat;
+    }
+    .home .category-autour-de-nous .entry-content,  
+    .tax-newsletter .category-autour-de-nous .entry-content {
+                background-image:url(assets/trace-gris-clair_03.png);
+                
+            }
+          
+            
+
+
+    .home .category-en-actions .entry-content,
+     .tax-newsletter .category-en-actions .entry-content{
+                background-image:url(assets/trace-gris-fonce.png);
+                
+                
+            }
+            
+    .home .category-engages .entry-content,
+    .tax-newsletter .category-engages .entry-content {
+                background-image:url(assets/trace-jaune.png);
+                
+            }
+            
+
+            
+/** @subsection gabarit 1 colonne */
+
+
+
+
+.category article.category-engages,
+.category article.category-en-actions,
+.category article.category-autour-de-nous{
+    
+    clear:both;
+    
+    .entry-header{
+        position: relative;//parent référent de entry-image
+    }
+    
+    .entry-image{
+        position: absolute;
+        left:70%;
+        
+    }
+    
+    h1.entry-title{
+        display: block;
+        width:68%;
+        margin:0 1.47% 1.31em 1.47%;
+        
+        a,
+        a:hover,
+        a:focus,
+        a:visited{
+            color: $color__text-main;
+        }
+        
+    }
+    
+    .entry-content{
+        float: left;
+        width:68%;
+        margin:0 1.47%;
+    }
+    
+}
+
+            
+
+/** @subsection gabarit modulaire */
+
+/* Couleurs de fond des catégories en blocs flottants */
+.category-echos-des-equipes, .category-vous, .category-rendez-vous, .category-pour-aller-loin {
+    .entry-content {
+        
+    }
+    .jaune {
+        background-color: $color__background-jaune;
+    }
+    .gris-clair {
+        background-color: $color__background-gris-clair;
+    }
+    .gris-fonce {
+        background-color: $color__background-gris-fonce;
+    }
+}
+
+
+article.category-echos-des-equipes,
+article.category-pour-aller-loin,
+article.category-rendez-vous,
+article.category-echos-des-equipes,
+article.category-vous{
+    
+       h1.entry-title{
+            padding: 0.5em 0;
+            line-height: 1em;
+            background-image: url(assets/trait-region.png); 
+            background-position: top left;
+            background-repeat: no-repeat;
+            
+                    a,
+                    a:hover,
+                    a:focus,
+                    a:visited{
+                        padding-bottom: 0.5em;
+                        color:$color__text-main;
+                        background-image: url(assets/fleche-categorie.png); 
+                        background-position: right bottom;
+                        background-repeat: no-repeat;
+                    }
+            
+        }
+        
+        .entry-content{
+            padding: 0 2.63%;//10 div 380
+        }
+ 
+}

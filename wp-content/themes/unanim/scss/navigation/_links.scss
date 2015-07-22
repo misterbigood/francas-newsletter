@@ -1,0 +1,33 @@
+a {
+	color: $color__link;
+        text-decoration:none;
+
+/*	&:visited {
+		color: $color__link-visited;
+	}*/
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__link-hover;
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+/*styles des liens catégories*/
+.entry-category{
+        a,
+        a:hover{
+        color: $color__text-main;
+        padding-bottom: 0.5em;
+        background-image: url(assets/fleche-categorie.png); 
+        background-position: right bottom;
+        background-repeat: no-repeat;
+    }//trait stylé dans posts-and-pages.scss
+    
+}

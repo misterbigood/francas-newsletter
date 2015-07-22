@@ -1,0 +1,178 @@
+header .main-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+        text-transform: uppercase;
+        
+        button {
+            border: 0px;
+            border-image: none; 
+            width: 42px; 
+            height: 22px; 
+            color: transparent; 
+            background-image: url(assets/ic-menu.png); 
+            background-color: transparent;
+            position: absolute;
+/*            right: 7%;*/
+            top: 45px;
+        }
+        
+	ul {
+		display: none;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		ul {
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			float: left;
+			position: absolute;
+			top: 1.5em;
+			left: -999em;
+			z-index: 99999;
+
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			li {
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+
+			a {
+				width: 200px;
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+	}
+	li {
+		/*float: left;*/
+		position: relative;
+                padding: 0.636em 0;
+
+		&:hover > a,
+		&.focus > a {
+		}
+	}
+	a {
+		display: block;
+		text-decoration: none;
+                color: $color__text-main;
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a {
+	}
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+    header {
+	.menu-toggle {
+		display: block;
+	}
+	.main-navigation ul {
+		display: none;
+	}
+    }
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+
+	& .nav-previous {
+		float: left;
+		width: 50%;
+	}
+
+	& .nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
+}
+
+
+/*Menu footer*/
+footer nav.main-menu-footer {
+    
+    ul{
+        li{
+            display: inline-block;
+            
+            
+            
+            &:after{
+                content:'|';
+                color:$color__text-menu-secondaire;
+                padding-left: 0.5em;
+                margin-right: 0.5em;
+                
+            }
+            
+            &:last-child{
+                &:after{
+                    content: none;
+                }
+            }
+            
+            a{
+                color:$color__text-menu-secondaire;
+            }
+            a:hover{
+                color:$color__text-main;
+                
+            }
+            
+            
+        }
+        .current-menu-item a{
+                color:$color__text-main;
+            }
+    }
+}
+
+
+/*menu mentions*/
+.menu-mentions{
+    position: absolute;
+    bottom: 0;
+    font-weight: 300;
+    
+    a,a:hover{
+        color: #fff;
+    }
+    
+    ul li{
+        display: inline-block;
+    }
+}

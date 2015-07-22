@@ -1,0 +1,45 @@
+/* Mixins */
+@mixin cols-display($number) {
+    -webkit-column-count: $number;
+    -moz-column-count: $number;
+    column-count: $number;
+    column-gap: 1.66%;
+}
+
+
+/* Classes de colonnes (2 ou 3)*/
+@for $i from 2 through 3 {
+    .cols-#{$i}
+    {
+        @include cols-display($i);
+        article {
+            overflow: auto;
+        }
+    }
+}
+
+/* Bloc de débogage sur le site - A enlever en production*/
+#debug {
+    font-size: .7em;
+    padding: 1%;
+    position: fixed;
+    top: 30px;
+    right: 0;
+    display: block;
+    width: 30%;
+    opacity: .8;
+    background-color: black;
+    color: white;
+    z-index: 10;
+    cursor: pointer;
+    h5 {
+        font-size: 1.2em;
+        color: red;
+    }
+    
+    &::before {
+        content: '+ / -';
+        
+    }
+}
+

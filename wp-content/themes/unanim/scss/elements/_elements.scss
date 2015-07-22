@@ -1,0 +1,186 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+        
+}
+
+#page{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+blockquote, q {
+	quotes: "" "";
+
+	&:before,
+	&:after {
+		content: "";
+	}
+}
+
+hr {
+	background-color: $color__background-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+        .exergue{
+        border-left: 10px solid #F1F2F2;
+        padding-left: 10px;
+        font-weight: 300;
+        font-size: 1.125em;
+        }
+
+        .mark{
+        background-color:$color__background-text;
+        }
+
+@import "lists";
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+@import "tables";
+
+
+/*header logo*/
+
+site-branding{
+    margin-bottom: 1.25em;
+    text-align: center;
+    
+}
+
+/*page category conteneur principal*/
+.site-content{
+    clear: both;
+    padding: 0px 8.33%;//100 div 1200
+    margin:1.3125em 0;//21 div 16
+}
+
+/*conteneur principal du gabarit modulaire et de la home et taxnewsletter*/
+.category-echos-des-equipes .site-content,
+.category-pour-aller-loin .site-content,
+.category-rendez-vous .site-content,
+.category-vous .site-content,
+.tax-newsletter .site-content,
+.home .site-content{
+    padding: 0px 0.833%;
+}
+
+/** ---=@section FOOTER ---*/
+
+
+footer{
+    position: relative;//parent référent
+    margin-top:2em;
+    min-height: 270px;
+    background-color: $color__background-footer;
+}
+
+footer nav{
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+}
+
+
+/*boutons suivant précédent*/
+
+.btn-prev{
+    position: absolute;
+    top: 6.56em;
+    left: 0.833%;
+    width: 12.5%;
+    margin: 0 0.833%;
+    min-height: 5.31em;//85 16
+    
+}
+
+.btn-next{
+    position: absolute;
+    top: 6.56em;
+    right: 0.833%;
+    width: 12.5%;
+    margin: 0 0.833%;
+    min-height: 5.31em;//85 16
+    
+
+}
+
+.btn-prev a,
+.btn-next a{
+   display: block;
+    position: absolute;
+    padding: 0.5em 0;
+    top: 20%;
+    font-weight: 900;
+    text-transform: uppercase;
+    color:#fff;
+    font-size:1.31em;
+    opacity:0.6;
+    
+    
+    &:hover,
+	&:focus,
+        &:active {
+         color:#fff;
+         opacity:1;
+    }
+}
+
+.btn-prev a{
+    text-align: right;
+    background-image:url(assets/trait-newsletter.png), url(assets/fleche-newsletter-prec.png);
+    background-position: right top, left  bottom;
+    background-repeat: no-repeat;
+   
+}
+.btn-next a{
+    background-image:url(assets/trait-newsletter.png), url(assets/fleche-newsletter-suiv.png);
+    background-position: left top, right  bottom;
+    background-repeat: no-repeat;
+}
+
+
+
+/*Version newsletter*/
+#newsletter_version{
+    padding-left: 22.83%; //274 div 1200
+    margin-bottom:1.3125em;//21 div 16
+}
+
+
+/*page liste des régions*/
+ul#region-list {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 1.71em;
+    list-style-type: none;
+    
+    
+    
+    li{
+        
+        a{
+            color: $color__background-gris-fonce;
+        }
+        a:hover,
+        a:focus{
+            color: $color__text-main;
+        }
+    }
+
+}

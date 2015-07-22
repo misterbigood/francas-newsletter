@@ -1,0 +1,65 @@
+body,
+button,
+input,
+select,
+textarea {
+	color: $color__text-main;
+	font-family: $font__main;
+	@include font-size(0.9375);//16px
+	line-height: $font__line-height-body;
+}
+
+
+
+
+
+/*Chapo*/
+lead,
+.lead{
+    font: 300 1.125em/1.968em;
+}
+
+.exergue{
+    font: 300 1em/$font__line-height-body;
+}
+
+mark, 
+.mark{
+    background-color: $color__background-text;
+}
+
+/*listes*/
+ul {
+   list-style-type: disc; 
+}
+
+/*liens*/
+
+/*menu secondaire*/
+footer nav.main-menu-footer {
+    
+    ul{
+        li a{
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size:$font-size-main;
+        }
+    }
+}
+
+/*Version newsletter*/
+#newsletter_version{
+    font-size:1.3125em;
+    font-weight: 900;
+    color:$color__background-gris-fonce;
+    
+    &:before{
+        content: '#';
+    }
+    
+}
+
+
+@import "headings";
+
+@import "copy";

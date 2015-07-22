@@ -1,0 +1,44 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11 juin 2015, 14:12:34
+    Author     : hannibal
+*/
+
+.region-link,
+.newsletter-link {
+    padding-left: 1em;
+    padding-right: 1em;
+    border: 1px solid rgba(0,0,0,.8);
+}
+
+.region-link:before {
+        content: "Region ";
+}
+
+.newsletter-link:before {
+        content: "Newsletter ";
+}
+
+
+.sinok.alert {
+    margin: 1em;
+    padding: 1em;
+}
+
+.sinok.alert.alert-warning {
+    background-color: #f6e2ac;
+    border: 1px solid coral;
+    color: coral;
+}
+
+.newsletter-nav {
+    
+}
+
+.newsletter-nav .newsletter-nav-link {
+    border: 1px solid green;
+}

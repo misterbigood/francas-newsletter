@@ -1,0 +1,97 @@
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+}
+
+h1{
+    font-weight: 900; 
+    @include font-size(2.25);//36 div 16
+    line-height: 1.3125em;
+    text-transform: uppercase;
+    
+}
+
+h2{
+     font-weight:400 ;
+     @include font-size(2.25);//36 div 16
+     line-height: 1.3125em;
+   
+}
+
+h3{
+    font-weight:400;
+    @include font-size(1.5);//24 div 16
+    line-height:$font__line-height-body;
+    text-transform: uppercase;
+    
+}
+
+
+h4{
+    font-weight:400;
+    @include font-size(1.5);//24 div 16
+    line-height:$font__line-height-body;
+    
+}
+
+h5{
+    font-weight:700;
+    @include font-size(1.25);//20 div 16
+    line-height:$font__line-height-body;
+    
+}
+
+h6{
+    font-weight:300;
+    @include font-size(1.125);//18 div 16
+    line-height:$font__line-height-body;
+    
+}
+
+/*Home et page taxonomie newsletter*/
+.home,
+.tax-newsletter{
+    
+    article{
+        h1,
+        h1 a {
+            font-size: 1.25em;
+            line-height: 1.31em;
+            text-decoration: none;
+            color: $color__text-main;
+            
+            
+        }
+        
+    }
+}
+
+/*Page catégorie gab 1 colonne*/
+/*titre de la catégorie*/
+    h1.page-title{
+        padding: 0.5em 0;
+        background-image: url(assets/trait-categorie.png), url(assets/fleche-categorie.png); 
+        background-position: top left , right bottom;
+        background-repeat: no-repeat;
+        
+      }
+      
+h1.page-title, 
+.entry-category a{
+    display: inline-block;
+    font-weight: 900;
+    font-size: 1.3125em;
+    text-transform: uppercase;
+    line-height: $font__line-height-body;
+    text-decoration: none;
+    color:$color__text-main;
+}
+
+ 
+
+
+/*titre post gab modulaire*/
+/*header.entry-header .entry-title{
+    font-weight: 900;
+    font-size: 2.25em; //36 div 16
+    line-height: 1.968em; // 31.5 div 16
+}*/
