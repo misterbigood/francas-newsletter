@@ -30,7 +30,7 @@ get_header(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                                     <header class="entry-header">
-                                        <?php the_title( sprintf( '<h1 class="entry-title"><a href="%s">', esc_url( get_category_link($cat[0]->term_id) ) ), '</a></h1>' ); ?>
+                                        <?php the_title( '<h1 class="entry-title">', '</h1>' );?>
                                     </header><!-- .entry-header -->
 
                                     <div class="entry-content cols-2">
