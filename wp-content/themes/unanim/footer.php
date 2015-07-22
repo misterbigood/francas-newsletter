@@ -20,9 +20,9 @@
             </nav>
             <div class="btn-prev"><?php echo nav_previous_nl(get_current_nl()); ?></div>
             <div class="btn-next"><?php echo nav_next_nl(get_current_nl()); ?></div>
-            <div class="menu-mentions">Les francas image + mentions</div>
+            <div class="menu-mentions"><?php wp_nav_menu( array( 'theme_location' => 'menu-footer', 'menu_id' => 'menu-footer   ' ) ); ?></div>
 	</footer><!-- #colophon -->
-</div><!-- #page -->
+        </div><!-- #page -->
 
 <?php wp_footer(); ?>
 
