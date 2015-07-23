@@ -28,7 +28,7 @@ get_header();
         // start Sinok
         //echo "lolo".get_term_by('slug', 'non-classe', 'category')->term_id.".<br />";
         $args = array(
-            'orderby' => 'name',
+            'orderby' => 'id',
             'order' => 'ASC',
             'hide_empty' => true,
             'exclude' => ( ($toto = get_term_by('slug', 'non-classe', 'category')->term_id) ) ? array($toto) : array(),
@@ -78,9 +78,9 @@ get_header();
                     )
                 );
                 $c_posts = get_posts($args);
-
+                
                 foreach ( $c_posts as $post ) : setup_postdata( $post ); ?>
-                        
+                       
                         <?php
                         switch ($category->slug) {
                             case 'engages':

@@ -22,7 +22,7 @@ get_header(); ?>
                 <?php
         // start Sinok
         $args = array(
-            'orderby' => 'name',
+            'orderby' => 'id',
             'order' => 'ASC',
             'hide_empty' => true,
             'exclude' => ( ($toto = get_term_by('slug', 'non-classe', 'category')->term_id) ) ? array($toto) : array(),

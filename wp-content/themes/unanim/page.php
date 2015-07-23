@@ -13,7 +13,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-            <main id="main" class="site-main" role="main"><h1><?php echo __FILE__; ?></h1>
+            <main id="main" class="site-main" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
@@ -21,9 +21,9 @@ get_header(); ?>
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) :
+					/*if ( comments_open() || get_comments_number() ) :
 						comments_template();
-					endif;
+					endif;*/
 				?>
 
 			<?php endwhile; // End of the loop. ?>
@@ -31,5 +31,5 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 <?php get_footer(); ?>
