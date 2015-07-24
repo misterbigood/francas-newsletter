@@ -1,21 +1,33 @@
 header .main-navigation {
 	clear: both;
 	display: block;
+        position: relative;
 	float: left;
 	width: 100%;
         text-transform: uppercase;
         
+        /*menu principal*/
+        .menu-main-menu-container{
+                position: absolute;
+                right: 0px;
+                top: -15.875em;
+                background-color: $color__background-gris-clair;
+                padding: 5em 20px;
+                z-index: 2;
+
+        }
+        
         button {
-            border: 0px;
-            border-image: none; 
-            width: 42px; 
-            height: 22px; 
-            color: transparent; 
-            background-image: url(assets/ic-menu.png); 
-            background-color: transparent;
+            border: 2px black solid;
+            width: 50px;
+            height: 42px;
+            color: transparent;
+/*            background-image: url("assets/ic-menu.png");*/
+            background-color:$color__text-main;
             position: absolute;
-/*            right: 7%;*/
-            top: 45px;
+            right: 0px;
+            top: -15.875em;
+            background-repeat: no-repeat;
         }
         
 	ul {
@@ -165,14 +177,39 @@ footer nav.main-menu-footer {
 /*menu mentions*/
 .menu-mentions{
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     font-weight: 300;
+    width: 50%;
+    left: 25%;
+    text-align: center;
     
-    a,a:hover{
-        color: #fff;
-    }
     
-    ul li{
-        display: inline-block;
-    }
+                ul li{
+                    display: inline-block;
+                        
+                    a{
+                        color:#fff;
+                         opacity:0.6;
+                    }
+                    a:hover,
+                    a:focus{
+                        opacity: 1;
+                    }
+
+                        &:after{
+                                   content:'|';
+                                   color:#fff;
+                                   padding-left: 0.3em;
+                                   margin-right: 0.3em;
+
+                               }
+
+                               &:last-child{
+                                   &:after{
+                                       content: none;
+                                   }
+                               }
+
+                 }
 }
+

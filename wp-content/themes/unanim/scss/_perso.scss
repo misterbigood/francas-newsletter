@@ -20,18 +20,19 @@
 
 /* Bloc de débogage sur le site - A enlever en production*/
 #debug {
+    display: none;
     font-size: .7em;
     padding: 1%;
     position: fixed;
     top: 30px;
     right: 0;
-    display: block;
     width: 30%;
     opacity: .8;
     background-color: black;
     color: white;
     z-index: 10;
     cursor: pointer;
+    
     h5 {
         font-size: 1.2em;
         color: red;
