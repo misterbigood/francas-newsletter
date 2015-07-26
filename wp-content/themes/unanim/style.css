@@ -208,7 +208,7 @@ body { background: #fff; /* Fallback for when there is no custom background colo
 blockquote, q { quotes: "" ""; }
 blockquote:before, blockquote:after, q:before, q:after { content: ""; }
 
-hr { background-color: #7A7777; border: 0; height: 1px; margin-bottom: 1.5em; }
+hr { background-color: #7A7777; border: 0; height: 1px; margin-bottom: 1.4em; }
 
 .exergue { border-left: 10px solid #F1F2F2; padding-left: 10px; font-weight: 300; font-size: 1.125em; }
 
