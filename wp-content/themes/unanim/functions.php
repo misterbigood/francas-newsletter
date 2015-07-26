@@ -75,6 +75,9 @@ function unanim_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+        
+        // Set up the Editor Style functionnality
+        add_editor_style();
 }
 endif; // unanim_setup
 add_action( 'after_setup_theme', 'unanim_setup' );
