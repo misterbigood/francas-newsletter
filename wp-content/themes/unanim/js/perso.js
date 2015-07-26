@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 jQuery(document).ready(function(){
-    $("#debug").children().hide();
+    jQuery("#debug").children().hide();
     jQuery("#debug").click(function(){
-            $(this).children().toggle(400);
+            jQuery(this).children().toggle(400);
             
           });
 });
