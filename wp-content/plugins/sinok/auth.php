@@ -1,9 +1,9 @@
 <?php
+
 /**
  * @package Sinok
  * @subpackage Auth
  */
-
 /*
  * Set auth and rights and groups and...
  * 
@@ -15,7 +15,7 @@
  * Initialize roles and rights
  */
 function snk_init_admin() {
-    
+
     $role_admin = get_role('administrator');
     $role_admin->add_cap('manage_regions');
     $role_admin->add_cap('manage_newsletters');
@@ -36,8 +36,10 @@ function snk_init_admin() {
     $role->add_cap('delete_users');
     $role->add_cap('manage_regions');
     $role->add_cap('manage_newsletters');
-    
+
     $role->add_cap('edit_users_region');
+
+    //$role->remove_cap('delete_others_pages');
 }
 
 add_action('admin_init', 'snk_init_admin');
@@ -51,7 +53,7 @@ function snk_filter_roles($roles) {
     if (in_array('editor', $user->roles)) {
         $tmp = array_keys($roles);
         foreach ($tmp as $r) {
-            if (in_array($r, array('author', 'contributor', 'subscriber')))
+            if (in_array($r, array('editor', 'author'/*, 'contributor', 'subscriber'*/)))
                 continue;
             unset($roles[$r]);
         }
@@ -109,7 +111,7 @@ function auth_has_role($role, $user = null) {
 
     if ($user instanceof WP_User) {
         foreach ($user->roles as $ur) {
-            if ($ur->name == $role)
+            if ($ur == $role)
                 return true;
         }
     }
@@ -142,7 +144,7 @@ function auth_has_region($region, WP_User $user = null) {
     //return $user->has_cap($cap)
 }
 
-function toto_save_post( $post_id, $post, $update ) {
+function toto_save_post($post_id, $post, $update) {
 
     /*
      * In production code, $slug should be set only once in the plugin,
@@ -151,31 +153,31 @@ function toto_save_post( $post_id, $post, $update ) {
     $slug = 'post';
 
     // If this isn't a 'book' post, don't update it.
-    if ( $slug != $post->post_type ) { 
+    if ($slug != $post->post_type) {
         return;
     }
 
     // - Update the post's metadata.
 
-    if ( isset( $_POST['region'] ) ) {
+    if (isset($_POST['region'])) {
         //update_post_meta( $post_id, 'region', sanitize_text_field( $_POST['region'] ) );
-        wp_set_object_terms( $post_id, sanitize_text_field( $_POST['region'] ), 'region', $append = false );
-    } 
+        wp_set_object_terms($post_id, sanitize_text_field($_POST['region']), 'region', $append = false);
+    }
 
-    if ( isset( $_POST['newsletter'] ) ) {
+    if (isset($_POST['newsletter'])) {
         //update_post_meta( $post_id, 'newsletter', sanitize_text_field( $_REQUEST['newsletter'] ) );
-        wp_set_object_terms( $post_id, sanitize_text_field( $_POST['newsletter'] ), 'newsletter', $append = false );
+        wp_set_object_terms($post_id, sanitize_text_field($_POST['newsletter']), 'newsletter', $append = false);
     }
 
     // Checkboxes are present if checked, absent if not.
-    /*if ( isset( $_REQUEST['inprint'] ) ) {
-        update_post_meta( $post_id, 'inprint', TRUE );
-    } else {
-        update_post_meta( $post_id, 'inprint', FALSE );
-    }*/
+    /* if ( isset( $_REQUEST['inprint'] ) ) {
+      update_post_meta( $post_id, 'inprint', TRUE );
+      } else {
+      update_post_meta( $post_id, 'inprint', FALSE );
+      } */
 }
-add_action('save_post', 'toto_save_post', 10, 3);
 
+add_action('save_post', 'toto_save_post', 10, 3);
 
 /**
  * Get the region of user
@@ -194,3 +196,137 @@ function get_auth_region(WP_User $user = null) {
 
     return '';
 }
+
+/**
+ * Prevent pages edit/delete
+ */
+function restrict_post_deletion($post_ID) {
+    //$user = get_current_user_id();
+
+    $user = wp_get_current_user();
+
+    // do nothing
+    if (!$user) {
+        return 0;
+    }
+
+    // do nothing
+    if (in_array('administrator', (array) $user->roles)) {
+        return 0;
+    }
+
+    $post = get_post($post_ID);
+
+    if (!$post) {
+        throw new Exception(__FUNCTION__ . '(): Object Post not found.');
+        return 0;
+    }
+
+    // do nothing
+    if ($post->post_type != 'page') {
+        return 0;
+    }
+
+    $restricted_pages = array('contact', 'credits', 'mentions-legales', 'newsletter', 'region');
+    if (in_array($post->post_name, $restricted_pages)) {
+        do_action('admin_page_access_denied');
+        wp_die(__('You cannot delete this entry.'));
+        exit;
+    }
+}
+
+add_action('wp_trash_post', 'restrict_post_deletion', 10, 1);
+add_action('before_delete_post', 'restrict_post_deletion', 10, 1);
+
+function restrict_post_edit($post_ID) {
+
+    $user = wp_get_current_user();
+
+    // do nothing
+    if (!$user) {
+        return 0;
+    }
+
+    // do nothing
+    if (in_array('administrator', (array) $user->roles)) {
+        return 0;
+    }
+
+    $post = get_post($post_ID);
+
+    if (!$post) {
+        throw new Exception(__FUNCTION__ . '(): Object Post not found.');
+        return 0;
+    }
+
+    // do nothing
+    if ($post->post_type != 'page') {
+        return 0;
+    }
+
+    $restricted_pages = array('newsletter', 'region');
+    if (in_array($post->post_name, $restricted_pages)) {
+        do_action('admin_page_access_denied');
+        wp_die(__('You cannot modify this entry.'));
+        exit;
+    }
+}
+
+add_action('save_post', 'restrict_post_edit', 10, 1);
+
+/*
+function fuck() {
+    
+    $result = array();
+    
+    $args = array(
+        'name' => array('newsletter', 'region'),
+        'post_type' => 'page',
+            //'post_status' => 'publish',
+            //'numberposts' => 1
+    );
+    
+    try {
+        $query = new WP_Query($args);
+
+        if ($query->posts) {
+            foreach ($query->posts as $post) {
+                array_push($result, $post->ID);
+            }
+        } 
+        
+    } catch (Exception $ex) {
+        do_action('admin_page_access_denied');
+        wp_die($ex->getMessage());
+        exit;
+    }
+
+    wp_reset_postdata();
+    
+    return $result;
+}
+
+function exclude_pages_from_admin($query) {
+    global $pagenow, $post_type;
+
+    $user = wp_get_current_user();
+
+    // do nothing
+    if (!$user) {
+        return;
+    }
+
+    // do nothing
+    if (in_array('administrator', (array) $user->roles)) {
+        return;
+    }
+
+    if (is_admin() && $pagenow == 'edit.php' && $post_type == 'page') { 
+        //$query->query_vars['post__not_in'] = fuck();
+        $query->set( 'post__not_in', fuck() );
+    }
+
+}
+//add_action('parse_query', 'exclude_pages_from_admin');
+add_action( 'pre_get_posts' ,'exclude_pages_from_admin' );
+*/

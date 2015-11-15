@@ -147,7 +147,7 @@ ul { list-style-type: disc; }
 footer nav.main-menu-footer ul li a { text-transform: uppercase; font-weight: 900; font-size: 0.937em; }
 
 /*Version newsletter*/
-#newsletter_version { font-size: 1.3125em; font-weight: 900; color: #a7a9ac; }
+#newsletter_version { font-size: 1.3125em; font-weight: 900; color: #7a7777; }
 #newsletter_version:before { content: '#'; }
 
 h1, h2, h3, h4, h5, h6 { clear: both; }
@@ -233,7 +233,7 @@ img { height: auto; /* Make sure images are scaled correctly. */ max-width: 100%
 table { margin: 0 0 1.5em; width: 100%; }
 
 /*header logo*/
-site-branding { margin-bottom: 1.25em; text-align: center; }
+.site-branding { text-align: center; }
 
 /*page category conteneur principal*/
 .site-content { clear: both; padding: 0px 8.33%; margin: 1.3125em 0; }
@@ -242,9 +242,12 @@ site-branding { margin-bottom: 1.25em; text-align: center; }
 .category-echos-des-equipes .site-content, .category-pour-aller-loin .site-content, .category-rendez-vous .site-content, .category-vous .site-content, .tax-newsletter .site-content, .home .site-content { padding: 0px 0.833%; }
 
 /** ---=@section FOOTER ---*/
-footer { position: relative; margin-top: 2em; min-height: 270px; background-color: #7A7777; }
+footer { position: relative; margin-top: 2em; min-height: 270px; background-color: #7A7777; background-image: url(assets/logo-francas.png); background-position: center; background-repeat: no-repeat; }
 
-footer nav { position: absolute; width: 100%; background-color: #fff; }
+footer nav { position: absolute; width: 100%; background-color: #fff; letter-spacing: -0.5px; font-size: 95%; }
+
+/*pour supprimer l'affichage d'un footer sous les contenus de page*/
+footer.entry-footer { display: none; }
 
 /*boutons suivant pr├®c├®dent*/
 .btn-prev { position: absolute; top: 6.56em; left: 0.833%; width: 12.5%; margin: 0 0.833%; min-height: 5.31em; }
@@ -258,14 +261,21 @@ footer nav { position: absolute; width: 100%; background-color: #fff; }
 
 .btn-next a { background-image: url(assets/trait-newsletter.png), url(assets/fleche-newsletter-suiv.png); background-position: left top, right  bottom; background-repeat: no-repeat; }
 
-/*Version newsletter*/
-#newsletter_version { padding-left: 22.83%; margin-bottom: 1.3125em; }
+/*Affichage de la version de la newsletter*/
+#newsletter_version { /*    padding-left: 36.33%;//436 div 1200*/ width: 28%; margin: 0 auto 1.3125em auto; }
 
 /*page liste des r├®gions*/
 ul#region-list { text-transform: uppercase; font-weight: 900; font-size: 1.71em; list-style-type: none; }
-ul#region-list li a { color: #a7a9ac; }
+ul#region-list li a { color: #7a7777; }
 ul#region-list li a:hover, ul#region-list li a:focus { color: #2B2B2B; }
 
+/*page Dans ma r├®gion*/
+body.tax-region #sidebar ul#region-list { font-weight: 500; font-size: 0.9375em; line-height: 2em; }
+
+/** ---=@section MEDIA QUERIES _ELEMENTS ---*/
+@media (max-width: 480px) { /*boutons suivant pr├®c├®dent*/
+  .btn-next { right: 12.6%; }
+  .btn-prev a, .btn-next a { font-size: 0.875em; } }
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -299,23 +309,27 @@ a:hover, a:active { outline: 0; }
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-header .main-navigation { clear: both; display: block; position: relative; float: left; width: 100%; text-transform: uppercase; /*menu principal*/ }
-header .main-navigation .menu-main-menu-container { position: absolute; right: 0px; top: -15.875em; background-color: #f1f2f2; padding: 5em 20px; z-index: 2; }
-header .main-navigation button { border: 2px black solid; width: 50px; height: 42px; color: transparent; /*            background-image: url("assets/ic-menu.png");*/ background-color: #2B2B2B; position: absolute; right: 0px; top: -15.875em; background-repeat: no-repeat; }
-header .main-navigation ul { display: none; list-style: none; margin: 0; padding-left: 0; }
-header .main-navigation ul ul { box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2); float: left; position: absolute; top: 1.5em; left: -999em; z-index: 99999; }
-header .main-navigation ul ul ul { left: -999em; top: 0; }
-header .main-navigation ul ul li:hover > ul, header .main-navigation ul ul li.focus > ul { left: 100%; }
-header .main-navigation ul ul a { width: 200px; }
-header .main-navigation ul li:hover > ul, header .main-navigation ul li.focus > ul { left: auto; }
-header .main-navigation li { /*float: left;*/ position: relative; padding: 0.636em 0; }
-header .main-navigation a { display: block; text-decoration: none; color: #2B2B2B; }
+/*Main navigation*/
+/* switching box model for all elements */
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-/* Small menu. */
-.menu-toggle, .main-navigation.toggled ul { display: block; }
-
-@media screen and (min-width: 37.5em) { header .menu-toggle { display: block; }
-  header .main-navigation ul { display: none; } }
+/* Responsive Navigation styles begin here */
+@media (max-width: 3000px) { /* Theming opened nav */
+  .site-header nav ul { position: absolute; /*		width: 70%;*/ top: 5rem; right: 1rem; z-index: 2; /* translate with hardware acceleration */ -webkit-transform: translateY(0) translateZ(0); -ms-transform: translateY(0) translateZ(0); transform: translateY(0) translateZ(0); -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.72, 0.89, 0.28, 1.39); transition: transform 0.3s cubic-bezier(0.72, 0.89, 0.28, 1.39); will-change: transform; /* global styles */ margin: 0; padding: 0; list-style: none; }
+  .site-header nav a { display: block; padding: 1.2rem; color: #000; background: #f1f2f2; text-decoration: none; /*		margin-bottom: 2px;*/ }
+  .site-header nav a:hover, .site-header nav a:focus, .site-header nav a:active { background: #7a7777; }
+  /* Theming closed nav */
+  .site-header nav.is-closed ul { -webkit-transform: translateX(110%) translateZ(0); -ms-transform: translateX(110%) translateZ(0); transform: translateX(110%) translateZ(0); }
+  /* Global styling nav button */
+  .site-header nav > button { position: absolute; top: .8rem; right: 1rem; z-index: 1; height: 4rem; width: 4rem; background-color: transparent; padding: 0; outline: 0; border: 1px solid #333; border-radius: 50%; cursor: pointer; -webkit-tap-highlight-color: transparent; -webkit-transition: -webkit-transform .2s; transition: transform .2s; }
+  .site-header nav > button::after, nav > button::before { content: ""; position: absolute; top: 15%; right: 40%; bottom: 15%; left: 40%; background-color: #333; border-radius: 10px; -webkit-transition: -webkit-transform .2s; transition: transform .2s; }
+  .site-header nav > button::before { top: 40%; right: 15%; bottom: 40%; left: 15%; }
+  /* Theming opened nav button */
+  .site-header nav:not(.is-closed) > button, .site-header nav:not(.is-closed) > button::before { -webkit-transform: rotate(90deg) translateZ(0); -ms-transform: rotate(90deg) translateZ(0); transform: rotate(90deg) translateZ(0); }
+  /* Hide alternate text except from screen readers */
+  .visually-hidden { position: absolute !important; clip: rect(1px, 1px, 1px, 1px); overflow: hidden; height: 1px; width: 1px; } }
+/*---------------------------------------------------------------*/
+/*navigation entre les newsletters*/
 .site-main .comment-navigation, .site-main .posts-navigation, .site-main .post-navigation { margin: 0 0 1.5em; overflow: hidden; }
 .comment-navigation .nav-previous, .posts-navigation .nav-previous, .post-navigation .nav-previous { float: left; width: 50%; }
 .comment-navigation .nav-next, .posts-navigation .nav-next, .post-navigation .nav-next { float: right; text-align: right; width: 50%; }
@@ -336,6 +350,9 @@ footer nav.main-menu-footer ul .current-menu-item a { color: #2B2B2B; }
 .menu-mentions ul li:after { content: '|'; color: #fff; padding-left: 0.3em; margin-right: 0.3em; }
 .menu-mentions ul li:last-child:after { content: none; }
 
+/** ---=@section MEDIA QUERIES_MENUS ---*/
+/*bouton de navigation deux fois plus petit sur les ├®crans de moins de 480px*/
+@media (max-width: 480px) { .site-header nav > button { height: 2rem; width: 2rem; } }
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -395,19 +412,19 @@ footer nav.main-menu-footer ul .current-menu-item a { color: #2B2B2B; }
 .page-links { clear: both; margin: 0 0 1.5em; }
 
 /** ---=@section HOME ---*/
-/** @subsection Home et taxonomie newsletter */
+/** @subsection Home et page taxonomie newsletter */
 .home article, .archive.tax-newsletter article { float: left; width: 23.33%; height: 660px; margin: 1.25em 0.83%; }
 .home article .entry-category, .archive.tax-newsletter article .entry-category { width: 100%; height: 3.75em; padding-top: 0.5em; background-image: url(assets/trait-categorie.png); background-position: top left; background-repeat: no-repeat; }
 .home .entry-footer, .archive.tax-newsletter .entry-footer { text-align: right; margin: 1em 0; }
 
 /*fond image trace sous texte des  cat├®gories de la Home et page taxonomie newsletter*/
-.home .category-autour-de-nous .entry-content, .home .category-en-actions .entry-content, .tax-newsletter .category-autour-de-nous .entry-content, .tax-newsletter .category-en-actions .entry-content { height: 514px; background-position: top center; background-repeat: no-repeat; }
+.home .category-autour-de-nous .entry-content, .home .category-en-actions .entry-content, .tax-newsletter .category-autour-de-nous .entry-content, .tax-newsletter .category-en-actions .entry-content { background-position: top center; background-repeat: no-repeat; }
 
-.home .category-autour-de-nous .entry-content, .tax-newsletter .category-autour-de-nous .entry-content { background-image: url(assets/trace-gris-clair_03.png); }
+.home .category-autour-de-nous .entry-content, .tax-newsletter .category-autour-de-nous .entry-content { background-image: url(assets/trace-gris-clair_03.png); background-repeat: no-repeat; background-size: cover; }
 
-.home .category-en-actions .entry-content, .tax-newsletter .category-en-actions .entry-content { background-image: url(assets/trace-gris-fonce.png); }
+.home .category-en-actions .entry-content, .tax-newsletter .category-en-actions .entry-content, .home .category-toi-moi-nous-tous-formateurs .entry-content, .tax-newsletter .category-toi-moi-nous-tous-formateurs .entry-content { /*            height: 100%;//pour que l'image de fond occupe toute la hauteur du conteneur parent*/ background-image: url(assets/trace-gris-fonce.png); background-repeat: no-repeat; background-size: cover; }
 
-.home .category-engages .entry-content, .tax-newsletter .category-engages .entry-content { background-image: url(assets/trace-jaune.png); }
+.home .category-engages .entry-content, .tax-newsletter .category-engages .entry-content { background-image: url(assets/trace-jaune.png); background-repeat: no-repeat; background-size: cover; }
 
 /** @subsection gabarit 1 colonne */
 .category article.category-engages, .category article.category-en-actions, .category article.category-autour-de-nous { clear: both; }
@@ -421,12 +438,29 @@ footer nav.main-menu-footer ul .current-menu-item a { color: #2B2B2B; }
 /* Couleurs de fond des cat├®gories en blocs flottants */
 .category-echos-des-equipes .jaune, .category-vous .jaune, .category-rendez-vous .jaune, .category-pour-aller-loin .jaune { background-color: #f9ffa0; }
 .category-echos-des-equipes .gris-clair, .category-vous .gris-clair, .category-rendez-vous .gris-clair, .category-pour-aller-loin .gris-clair { background-color: #f1f2f2; }
-.category-echos-des-equipes .gris-fonce, .category-vous .gris-fonce, .category-rendez-vous .gris-fonce, .category-pour-aller-loin .gris-fonce { background-color: #a7a9ac; }
+.category-echos-des-equipes .gris-fonce, .category-vous .gris-fonce, .category-rendez-vous .gris-fonce, .category-pour-aller-loin .gris-fonce { background-color: #7a7777; }
 
 article.category-echos-des-equipes h1.entry-title, article.category-pour-aller-loin h1.entry-title, article.category-rendez-vous h1.entry-title, article.category-echos-des-equipes h1.entry-title, article.category-vous h1.entry-title { padding: 0.5em 0; line-height: 1em; background-image: url(assets/trait-region.png); background-position: top left; background-repeat: no-repeat; }
 article.category-echos-des-equipes h1.entry-title a, article.category-echos-des-equipes h1.entry-title a:hover, article.category-echos-des-equipes h1.entry-title a:focus, article.category-echos-des-equipes h1.entry-title a:visited, article.category-pour-aller-loin h1.entry-title a, article.category-pour-aller-loin h1.entry-title a:hover, article.category-pour-aller-loin h1.entry-title a:focus, article.category-pour-aller-loin h1.entry-title a:visited, article.category-rendez-vous h1.entry-title a, article.category-rendez-vous h1.entry-title a:hover, article.category-rendez-vous h1.entry-title a:focus, article.category-rendez-vous h1.entry-title a:visited, article.category-echos-des-equipes h1.entry-title a, article.category-echos-des-equipes h1.entry-title a:hover, article.category-echos-des-equipes h1.entry-title a:focus, article.category-echos-des-equipes h1.entry-title a:visited, article.category-vous h1.entry-title a, article.category-vous h1.entry-title a:hover, article.category-vous h1.entry-title a:focus, article.category-vous h1.entry-title a:visited { padding-bottom: 0.5em; color: #2B2B2B; background-image: url(assets/fleche-categorie.png); background-position: right bottom; background-repeat: no-repeat; }
 article.category-echos-des-equipes .entry-content, article.category-pour-aller-loin .entry-content, article.category-rendez-vous .entry-content, article.category-echos-des-equipes .entry-content, article.category-vous .entry-content { padding: 0 2.63%; }
 
+/** @subsection gabarit Dans ma r├®gion sidebar et contenu */
+body.category-dans-ma-region article.category-dans-ma-region, body.tax-region header.page-header { float: right; width: 66%; margin: 0 1.47%; }
+
+body.tax-region #sidebar { float: left; width: 28%; margin: 0 1.47%; }
+
+/** ---=@section MEDIA QUERIES POSTS_AND_PAGES ---*/
+@media screen and (max-width: 480px) { /** @subsection Home et page taxonomie newsletter */
+  .home article, .archive.tax-newsletter article { float: none; width: auto; height: auto; margin-left: 5px; margin-right: 5px; }
+  /** @subsection gabarit 1 colonne */
+  .category article.category-engages .entry-header, .category article.category-en-actions .entry-header, .category article.category-autour-de-nous .entry-header { position: inherit; }
+  .category article.category-engages .entry-image, .category article.category-en-actions .entry-image, .category article.category-autour-de-nous .entry-image { position: inherit; }
+  .category article.category-engages h1.entry-title, .category article.category-en-actions h1.entry-title, .category article.category-autour-de-nous h1.entry-title { width: 95%; }
+  .category article.category-engages .entry-content, .category article.category-en-actions .entry-content, .category article.category-autour-de-nous .entry-content { width: 98%; }
+  /** @subsection gabarit Dans ma r├®gion sidebar et contenu */
+  article.category-dans-ma-region, body.tax-region header.page-header { float: left; width: 100%; margin: 0 1.47%; }
+  body.tax-region #sidebar { display: none; } }
+  
 /*--------------------------------------------------------------
 ## Asides
 --------------------------------------------------------------*/

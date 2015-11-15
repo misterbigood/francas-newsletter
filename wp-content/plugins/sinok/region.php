@@ -61,7 +61,7 @@ function get_region_name($code = null) {
 
     $regions = get_regions_config();
 
-    return ( $code && is_numeric($code) && isset($regions[$code])) ? $regions[$code]['name'] : '';
+    return ( $code && isset($regions[$code])) ? $regions[$code]['name'] : '';
 }
 
 // Register Custom Taxonomy
